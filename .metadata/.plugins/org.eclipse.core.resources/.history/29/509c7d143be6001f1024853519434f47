@@ -1,0 +1,25 @@
+package com.employeemanagement.salary;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+@EntityScan(basePackages = {
+	    "com.employeemanagement.user.dto",
+	    "com.employeemanagement.salary.dto"
+	})
+	@ComponentScan(basePackages = {
+	    "com.employeemanagement.user",
+	    "com.employeemanagement.salary"
+	})
+	@EnableJpaRepositories(basePackages = {
+	    "com.employeemanagement.user.repository",
+	    "com.employeemanagement.salary.repository"
+	})
+public class SalaryApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SalaryApplication.class, args);
+	}
+
+}

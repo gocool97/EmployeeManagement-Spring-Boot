@@ -1,0 +1,5 @@
+package com.employeemanagement.user.config;
+
+public class RestTemplateConfig {
+
+}

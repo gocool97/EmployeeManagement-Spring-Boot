@@ -1,0 +1,5 @@
+package com.employeemanagement.salary.dto;
+
+public class SalaryDTO {
+
+}

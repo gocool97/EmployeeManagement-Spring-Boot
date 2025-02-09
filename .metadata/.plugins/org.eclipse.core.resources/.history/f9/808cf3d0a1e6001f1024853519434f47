@@ -1,0 +1,5 @@
+package com.employeemanagement.user.dto;
+
+public class RoleUpdateEvent {
+
+}

@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module com.employeemanagement.infra {
+	requires spring.web;
+}

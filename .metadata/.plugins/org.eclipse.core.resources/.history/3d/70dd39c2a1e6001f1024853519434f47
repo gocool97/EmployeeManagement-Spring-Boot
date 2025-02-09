@@ -1,0 +1,5 @@
+package com.employeemanagement.user.client;
+
+public class SalaryClient {
+
+}

@@ -1,0 +1,5 @@
+package com.employeemanagement.salary.repository;
+
+public class SalaryRepository {
+
+}

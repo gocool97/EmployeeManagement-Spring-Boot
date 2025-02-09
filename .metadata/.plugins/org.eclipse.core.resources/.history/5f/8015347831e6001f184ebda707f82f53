@@ -1,0 +1,38 @@
+package com.employeemanagement.salary.controller;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.employeemanagement.infra.dto.RequestWrapper;
+import com.employeemanagement.infra.dto.ResponseWrapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class SalaryController {
+
+	@Autowired
+	SalaryService service;
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@PostMapping(value = "user/salary")
+	public ResponseEntity<Object> addSalary(@RequestBody RequestWrapper request){
+		ResponseWrapper responseWrapper = new ResponseWrapper();
+		try {
+			ObjectMapper objectMapper = new ObjectMapper();
+			SalaryDTO salary = objectMapper.convertValue(request.getRequestBody(), SalaryDTO.class);
+			String response = service.addSalary(salary);
+			responseWrapper.setResponseBody(response);
+			responseWrapper.setResponseStatus(Constants.OK);
+		}  catch (Exception e) {
+			LOGGER.info("Exception:"+e.getMessage());
+			responseWrapper.setResponseBody(e.getMessage());
+			responseWrapper.setResponseStatus(Constants.GENERIC_ERROR);
+		}
+
+		return new ResponseEntity(responseWrapper.getResponseBody(), responseWrapper.getHttpHeaders(),
+				responseWrapper.getResponseStatus());
+	}
+}
